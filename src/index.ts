@@ -1,10 +1,10 @@
-import * as Sequelize from 'sequelize';
-
 export default class NicknamesPlugin {
   init (henta) {
     const usersPlugin = henta.getPlugin('common/users');
+    const dbPlugin = henta.getPlugin('common/db');
+  
     usersPlugin.field('nickName', {
-      type: Sequelize.STRING,
+      type: dbPlugin.types.STRING,
       allowNull: false,
       defaultValue: ''
     });
